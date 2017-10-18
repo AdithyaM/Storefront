@@ -4,7 +4,7 @@ Storefront created by consuming JSON data with Angular JS
 ## Technologies: JavaScript, AngularJS , Angular Route, CSS
 
 ## Steps to launch application
-* Checkout the repository and moved to the storefront directory.
+* Download folder or Checkout the repository and moved to the storefront directory.
 * Install node  if not installed and install express using command `$ npm install express`
 * run command `node server.js`  and products json are hosted in `http://localhost:3000/products` make sure it is running to perform storefront application test.
 * launch index.html to see products and hover on them to add cart or view details

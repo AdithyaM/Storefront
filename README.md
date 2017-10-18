@@ -25,6 +25,6 @@ BackboneJs also has many advantages like creating your own MVC and doesnot glue 
 * MyCart pop up window.
 * Automated Test cases.
 
-## However I have completed other functinalities
+## However I have completed other functinalities using framework and vanila JS and tried to make it responsive app with minimal CSS, less code , having services with common methods that can share on many controllers. 
 
 

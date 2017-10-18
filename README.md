@@ -18,7 +18,7 @@ Storefront created by consuming JSON data with Angular JS
 * Helps in  modular development.
 * Built in services helps to get data from server like $http etc.
 
-BackboneJs also has many advantages like creating your own MVC and doesnot glue to HTML where framework actually in practical should not have framework attributes apart from html specifications , so that all logic is handled in Framework. 
+BackboneJs also has many advantages like creating your own MVC and doesnot glue to HTML . It doesn't depend on stuffing application logic into your HTML. There's no embedded JavaScript, template logic, or binding hookup code in data- or ng- attributes, and no need to invent your own HTML tags. Scales well for larger application.
 
 ## Initially I thought of completing the application by both backbonejs and angularjs and provide differences of it.
 ## Due to Rain Floods in Bangalore which affected the daily life , I could not complete below topics on time.

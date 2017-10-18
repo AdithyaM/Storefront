@@ -1,0 +1,50 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+	margin:0;
+	padding:0;
+  vertical-align: baseline;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img {
+	border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;;
+}
+
+nav a, #right-menu a {
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color:black;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.category-list:before, .category-list:after, .plates-image:before .plates-image:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.clearf{
+  clear: both;
+}
+body {
+    color: #101010;
+    font-size: 14px;
+    margin: 0;
+}

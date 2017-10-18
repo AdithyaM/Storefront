@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Storefront</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-route.js"></script>
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/styles.css">
+<script type="text/javascript" src="js/services.js"></script>
+<script type="text/javascript" src="js/productcategory.js"></script>
+<script type="text/javascript" src="js/productdetail.js"></script>
+<script type="text/javascript" src="js/cart.js"></script>
+</head>
+
+<body ng-app="bigComApp">
+  <div class="category-list">
+
+      <header>
+        <div id="menu-list">
+           <div id="left-menu"><a href="#!/" ><img ng-src="images/logo.png"></a> </div>
+            <div id="center-menu">
+               <nav>
+                  <a href="#!/">Home</a>
+                  <a href="#">SHOP &#x25BE;</a>
+                  <a href="#">Journal</a>
+                  <a href="#">MORE&#x25BE;</a>
+                </nav>
+            </div>
+            <div id="right-menu"><a href="#!/cart" id="cartCount">MY CART ({{count}})</a>&#x25BE;</div>
+            <div class="clearf"></div>
+       </div>
+      </header>
+
+      <script type="text/ng-template" id="homeId">
+          <div class="plates-image">
+                  <img src="images/plates-header.jpg">
+                  <div class="plates-info">
+                       <div class="plates-text">
+                              <h1><span>Plates<span></h1>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus pulvinar, placerat turpis ac, interdum metus. In eget massa sed enim hendrerit auctor a eget arcu. Curabitur ac pharetra nisl sit </p>
+                       </div>
+                  </div>
+                  <div class="clearfloat" style="clear:left"></div>
+            </div>
+
+            <div class="product-list">
+                  <div class="prd-list" ng-repeat="prd in productsData">
+                     <img class="prd-image" ng-src="images/{{prd.image}}"></img>
+                     <p class="prd-brand" data-brand="{{prd.brand}}">{{prd.brand}}</p>
+                     <h5 class="prd-title" data-desc="{{prd.description}}" data-title="{{prd.title}}">{{prd.title}}</h5>
+                     <p class="prd-price" data-price="{{prd.price}}">${{prd.price | number : 2}}</p>
+                     <div class="prd-btn">
+                       <a href="#!/productDetails" ng-click="viewPrdDetails($event)"><button type="button">VIEW DETAILS</button></a>
+                       <button type="button" class="add-to-cart" ng-click="addToCart($event)">ADD TO CART</button>
+                     </div>
+                  </div>
+            </div>
+    </script>
+
+    <script type="text/ng-template" id="productDetailsId">
+      <div class="prd-details-info">
+         <p>HOME / Plates / {{ProductView[0].title}}</p>
+      </div>
+      <div class="prd-details" ng-if="ProductView.length > 0">
+        <img class="prd-image" ng-src="{{ProductView[0].image}}"></img>
+        <div class ="prd-data">
+           <p class="prd-brand" data-brand="{{ProductView[0].brand}}">{{ProductView[0].brand}}<p>
+           <p class="prd-title" data-title="{{ProductView[0].title}}">{{ProductView[0].title}}</p>
+           <p class="prd-price" data-price="{{ProductView[0].price}}">${{ProductView[0].price | number : 2}}</p>
+           <p class="prd-desc" data-desc="{{ProductView[0].desc}}">{{ProductView[0].desc}}</p>
+           <div class="quantity_block">
+                <input type="text" class="prd-deatils-qty" readonly="true" name="qty" value="1">
+                <div class="prd-details-add">
+                    <input type="button" ng-click="addSingleqty($event)" value="+" class="plus_minus plus">
+                    <input type="button" ng-click="removeSingleqty($event)"value="-" class="plus_minus minus">
+                </div>
+                <div class="prd-details-addcart">
+                    <button type="button" ng-click="proAddtoCart($event)" style="">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/ng-template" id="cartId">
+      <div>
+        <p class="shopping-cart">Shopping Cart</p>
+      </div>
+      <div class="prd-heading" ng-if="Products.length >0">
+        <p class="prd-prod" >PRODUCT</p>
+        <p class="prd-qty" >QUANTITY </p>
+        <p class="prd-total" >TOTAL</p>
+        <p class="prd-act" >ACTION</p>
+      </div>
+      <div class="cart_item_list">
+          <div class="cart_item wishFinder" ng-repeat="prd in Products">
+               <a class="item-image" href="#">
+                   <img class="prd-image" data-image="{{prd.image}}" ng-src="{{prd.image}}" alt="" >
+               </a>
+               <div class="item-info">
+                   <p class="prd-brand" data-brand="{{prd.brand}}"><strong>{{prd.brand}}</strong></p>
+                   <a class="item-link prd-title" data-title="{{prd.title}}">{{prd.title}}</a>
+                </div>
+                <div class="quantity">
+                  <input type="text" class="prd-deatils-qty"readonly="true" name="qty" value="{{prd.qty}}">
+                  <div class="prd-details-add">
+                    <input type="button" ng-click="addSingleqty($event)" value="+" class="plus_minus plus">
+                    <input type="button" ng-click="removeSingleqty($event)" value="-"  class="plus_minus minus">
+                  </div>
+                </div>
+                 <div class="item-price">
+                     <div class="price">
+                        <span class="prd-price" data-price="{{prd.price}}">${{prd.total | number : 2}}</span>
+                     </div>
+                 </div>
+                 <div class="remove-item" ng-click="removeCartItem($event)" style="float:right;cursor:pointer;">
+                   <span>&#x2715;</span>
+                 </div>
+            </div>
+            <div class="cart-details-box" ng-if="Products.length >0">
+                <table class="cart-details-info">
+                  <tr class="titles">
+                      <td colspan="3"></td>
+                      <td><strong>Subtotal</strong></td>
+                      <td id="sbTotal"><strong>${{subTotal | number : 2}}</strong></td>
+                  </tr>
+                  <tr class="total-row">
+                      <td colspan="3" rowspan="1"></td>
+                      <td><strong>Total</strong></td>
+                      <td><strong>${{subTotal | number : 2}}</strong></td>
+                  </tr>
+                  </table>
+            </div>
+            <div class="cart-actions-box" ng-if="Products.length >0">
+               <button type="button" class="checkOutBtn">CHECKOUT (${{subTotal | number : 2}})</button>
+               <a class="continueShopping" href="#!/">CONTINUE SHOPPING</a>
+            </div>
+      </div>
+    </script>
+
+    <div ng-view></div>
+
+</div>
+</body>
+
+</html>

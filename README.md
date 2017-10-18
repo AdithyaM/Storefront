@@ -1,7 +1,7 @@
 # Storefront SPA
 Storefront created by consuming JSON data with Angular JS
 
-## Technologies: JavaScript, AngularJS , Angular Route
+## Technologies: JavaScript, AngularJS , Angular Route, CSS
 
 ## Steps to launch application
 * Checkout the repository and moved to the storefront directory.
